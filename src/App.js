@@ -10,21 +10,50 @@ const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 class App extends React.Component {
 
-
-  getWeathers = async (e)=>{
-    e.preventDefault();
-    const externalApi_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_KEY}&units=metric`);
-    //converting the response to json format
-    const data = await externalApi_call.json()
-    console.log(data);
+  state = {
+    temperature: '',
+    city: '',
+    country: '',
+    humidity: '',
+    description: '',
+    error: ''
   }
 
+  getWeathers = async (e) => {
+    e.preventDefault();
+
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+
+    const externalApi_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
+    //converting the response to json format
+    const data = await externalApi_call.json();
+    //update the state
+    this.setState({
+      temperature: data.main.temp,
+      city: data.name,
+      country: data.sys.country,
+      humidity: data.main.humidity,
+      description: data.weather[0].description,
+      error: ''
+    });
+
+    //testing response
+    // console.log(data);
+  }
   render() {
     return (
       <div>
         <Title></Title>
-        <Form getWeather= {this.getWeathers}></Form>
-        <Weather></Weather>
+        <Form getWeather={this.getWeathers} />
+        <Weather
+        temperature= {this.state.temperature}
+        city= {this.state.city}
+        country= {this.state.country}
+        humidity= {this.state.humidity}
+        description= {this.state.description}
+        error= {this.state.error}
+        />
       </div>
     );
   }

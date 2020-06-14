@@ -1,12 +1,12 @@
 import React from 'react'
 
-class Form extends React.Component{
-	render(){
+class Form extends React.Component {
+	render() {
 		return (
 			<div>
 				<form onSubmit={this.props.getWeather}>
-					<input type="text" name="city" placeholder="City.."></input>
-					<input type="text" name="country" placeholder="Country.."></input>
+					<input type="text" name="city" placeholder="City..." required/>
+					<input type="text" name="country" placeholder="Country..." required/>
 					<button>Search </button>
 				</form>
 			</div>
