@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+
+.main-body{
+
+    width: 100%;
+    height: 100%;
+    padding-top: 6em;
+    display: flex;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root, html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('./img/pexels-photo-395196.jpeg');
+  background-size: cover;
+  background-position: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button_space{
+  padding-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app_heading{
+  font-family: 'Anton', sans-serif;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.sub_heading{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  font-size: 1.3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list_font {
+  font-family: 'Abel', sans-serif;
+  font-size: 1.5rem;
 }
